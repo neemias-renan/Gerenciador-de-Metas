@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <div class="meta_add">
+            <div class="btn_voltar">
+                <a href="/metas">
+                    <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 18L9 12L15 6" stroke="#404040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>   
+                </a>  
+            </div>
+
+
+
+            <div class="meta_post_add">
+                <form action="" method="POST">
+                    <h1>Editar Meta</h1>
+                    <div class="div_input">
+                        <input type="text" class="input"name="titulo" placeholder="Adicione o Titulo" minlength="3" maxlength="25" value="{{atualizar_meta.titulo}}">
+                    </div>
+                    <div class="div_input">
+                        <textarea class="input  textarea" name="descricao" placeholder="Adicione a descrição" rows="5" cols="10" minlength="3" maxlength="60">{{atualizar_meta.descricao}}</textarea>
+                    </div>
+
+                    <div>
+                        <p class="alerta_erro">{{alerta_erro}}</p>
+                    </div>
+                   
+                    <input class="btn_submit" type="submit" value="Salvar Meta">
+                </form>
+            </div>
+            
+            
+        </div>
+    </div>
+{% endblock %}

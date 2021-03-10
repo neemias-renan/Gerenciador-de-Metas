@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        <div class="div_login">
+            <h1>Focus</h1>
+            <form action="" method="POST">
+                <div class="div_input">
+                    <input type="text" class="input_login" name="email" placeholder="Email">
+                </div>
+                <div class="div_input">
+                    <input type="password" class="input_login" name="senha" placeholder="Senha">
+                </div>
+                
+                <div>
+                    <p class="alerta_erro">{{alerta_erro}}</p> 
+                </div>
+
+                <input class="btn_submit" type="submit" value="Entrar">
+            </form>
+
+
+            <div class="link">
+                <a href="/registrar_user">Criar Conta</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

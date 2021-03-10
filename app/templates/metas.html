@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="corpo_div">
+        <div>
+
+            <div class="btn_voltar">
+                <a href="/logout">
+                    <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 18L9 12L15 6" stroke="#404040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>   
+                </a>  
+            </div>
+
+            <div class="div_top">
+                <div class="title">
+                    <h1 class="margin_0" id="title_h1">Suas Metas</h1>
+                    <p class="margin_0" id="subtitle_p">Você Possui {{quantidade_metas}} Metas</p>
+                </div>
+                <div class="btn_add">
+                    <a href="/adicionar_metas">
+                        <svg width="36" height="36" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22.1667 3.5H5.83333C4.54467 3.5 3.5 4.54467 3.5 5.83333V22.1667C3.5 23.4553 4.54467 24.5 5.83333 24.5H22.1667C23.4553 24.5 24.5 23.4553 24.5 22.1667V5.83333C24.5 4.54467 23.4553 3.5 22.1667 3.5Z" fill="#EE2375" stroke="#EE2375" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M14 9.33334V18.6667" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <path d="M9.33334 14H18.6667" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+
+            <div class="div_ul">
+                <ul>
+                    {% for meta in meta %}
+                        <li>
+                            <div class="div_meta">
+                                <div>
+                                    <h3 class="margin_0 display_flex">{{meta.titulo}}</h3>
+                                    <p class="margin_0 display_flex width">{{meta.descricao}}</p>
+                                </div>
+
+                                <div class="btns_div_meta">
+                                    <a class="margin_bottom_meta" href="/editar_metas/{{meta.id}}">
+                                        <svg width="18" height="18" viewBox="0 0 23 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M16.5 2.75C16.7626 2.48735 17.0744 2.27901 17.4176 2.13687C17.7608 1.99473 18.1286 1.92157 18.5 1.92157C18.8714 1.92157 19.2392 1.99473 19.5824 2.13687C19.9256 2.27901 20.2374 2.48735 20.5 2.75C20.7626 3.01264 20.971 3.32444 21.1131 3.6676C21.2553 4.01077 21.3284 4.37856 21.3284 4.75C21.3284 5.12143 21.2553 5.48923 21.1131 5.83239C20.971 6.17555 20.7626 6.48735 20.5 6.75L7 20.25L1.5 21.75L3 16.25L16.5 2.75Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                    </a>
+                                    
+                                    <a href="/apagar_metas/{{meta.id}}">
+                                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M3 6H5H21" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M8 6V4C8 3.46957 8.21071 2.96086 8.58579 2.58579C8.96086 2.21071 9.46957 2 10 2H14C14.5304 2 15.0391 2.21071 15.4142 2.58579C15.7893 2.96086 16 3.46957 16 4V6M19 6V20C19 20.5304 18.7893 21.0391 18.4142 21.4142C18.0391 21.7893 17.5304 22 17 22H7C6.46957 22 5.96086 21.7893 5.58579 21.4142C5.21071 21.0391 5 20.5304 5 20V6H19Z" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M10 11V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            <path d="M14 11V17" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                            </svg>
+                                            
+                                    </a>
+                                </div>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+{% endblock %}
