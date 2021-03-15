@@ -2,7 +2,6 @@ from flask import render_template,request,redirect,url_for
 from flask_login import login_user,logout_user,current_user,login_required
 from app import app, db, lm
 
-
 from app.models.tables import User, Meta
 
 @lm.user_loader
@@ -55,8 +54,6 @@ def logout():
     logout_user()
     return redirect(url_for('login'))
 
-
-
 @app.route("/metas")
 @login_required
 def metas():
@@ -84,8 +81,6 @@ def adicionar_metas():
             db.session.commit()
             return redirect(url_for('metas'))
     return render_template('adicionar_metas.html',alerta_erro =alerta_erro)
-
-
 
 @app.route("/editar_metas/<idmeta>",methods=['GET','POST'])
 @login_required
