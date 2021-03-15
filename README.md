@@ -19,8 +19,8 @@ $ virtualenv -p python3 venv
 Para ativar o ambiente virtual:
 
 No Windows:
-
-$ cd venv\Script\  
+```
+$ cd venv\Scripts\  
   em seguida digite: 
 $ activate
 ```
