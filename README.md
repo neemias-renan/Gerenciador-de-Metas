@@ -31,12 +31,16 @@ Volte para a pasta inicial do projeto, e finalmente, instale a lista de pacotes 
 $ pip3 install -r requirements.txt
 ```
 ## Configurando o projeto
+Se na pasta principal do projeto existir a pasta migrate e o banco 'storage.db', pule a seguinte etapa:
 
-Atualize o banco de dados:
+Crie o banco de dados:
 
 ```sh
 $ py run.py db init
 $ py run.py db migrate
+```
+Apenas se já existir a pasta migrate execute o seguinte código:
+```
 $ py run.py db upgrade
 ```
 
