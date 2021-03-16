@@ -184,3 +184,32 @@ a{
 .ta_left{
     text-align:-webkit-left;
 }
+
+.confirmacao {
+    display: none;
+    position: absolute;
+    background-color: #42aafd;
+    height: 4em;
+    width: 15em;
+    z-index: 1;
+    margin-top: -0.8em;
+    padding-top: 1em;
+    margin-left: -0.06em;
+}
+
+.btn_confirmar{
+    border: none;
+    background: none;
+    color: white;
+    border-bottom: solid;
+    padding: 0.5em;
+    padding-bottom: 0.1em;
+    padding-left: 0.9em;
+    padding-right: 0.9em;
+    font-family: 'Poppins';
+}
+
+.btn_cancelar{
+    margin-right: 4em;
+    margin-left: -2em;
+}

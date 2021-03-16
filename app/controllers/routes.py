@@ -65,14 +65,43 @@ def metas():
     quantidade_metas = len(metas_user)
     return render_template('metas.html',meta = meta, quantidade_metas = quantidade_metas)
 
-@app.route("/configuracao")
+@app.route("/configuracao", methods=['GET','POST'])
 @login_required
 def configuracao():
     variavel1 = current_user.nome
     variavel2 = variavel1.split(" ")
     nome = variavel2[0]
     dados = current_user
-    return render_template('configuracao.html',nome =nome,dados = dados)
+    alerta_erro = ''
+    if request.method == 'POST':
+        NovoNome = request.form['novoNome']
+        NovoEmail = request.form['novoEmail']
+        NovaSenha = request.form['novaSenha']
+        confirmarSenha = request.form['confirmarnovaSenha']
+
+
+        if NovoNome == '' or NovoEmail == '':
+            alerta_erro = 'Adicione todos os dados'
+        
+        elif NovaSenha == '' and confirmarSenha == '':
+            user = User.query.filter_by(id = dados.id).first()
+            user.nome = NovoNome
+            user.email = NovoEmail
+            db.session.commit()
+            return redirect(url_for('metas'))
+
+        else:
+            if NovaSenha == confirmarSenha:
+                user = User.query.filter_by(id = dados.id).first()
+                user.nome = NovoNome
+                user.email = NovoEmail
+                user.senha = NovaSenha
+                db.session.commit()
+                return redirect(url_for('metas'))
+            else:
+                alerta_erro = 'As senhas não são as mesmas.'
+
+    return render_template('configuracao.html',nome =nome,dados = dados,alerta_erro= alerta_erro)
 
 @app.route("/adicionar_metas",methods=['GET','POST'])
 @login_required
@@ -117,12 +146,9 @@ def apagar_metas(idmeta):
     db.session.commit()
     return redirect(url_for('metas'))
 
-
-
 @app.errorhandler(404)
 def not_found_error(error):
     return render_template('404.html'), 404
-
 
 @lm.unauthorized_handler
 def unauthorized():
