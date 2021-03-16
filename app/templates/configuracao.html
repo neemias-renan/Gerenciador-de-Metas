@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div>
+        
+        <div class="btn_voltar">
+            <a href="/logout">
+                <svg width="35" height="35" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 18L9 12L15 6" stroke="#404040" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>   
+            </a>  
+        </div>
+
+        <div class="div_top padd">
+            <h1 class="ta_left margin_0">Olá, {{nome}}</h1>
+            <p class="ta_left margin_0">Edite seus dados</p>
+
+            <form action="" class="form_config" method='POST'>
+                <input type="text" class="input novodado" name="novoNome" value="dados.nome" placeholder="Adicione seu Nome">
+                
+                <input type="text" class="input novodado" name="novoEmail" value="dados.email" placeholder="Adicione seu Email">
+                
+                <input type="password" class="input novodado" name="novaSenha" placeholder="Adicione uma nova senha">
+
+                <input type="password" class="input novodado" name="confirmarnovaSenha" placeholder="Confirme a nova senha" id="">
+                <input type="submit" class="btn_submit" value="Salvar">
+            </form>
+        </div>
+
+        
+    </div>    
+{% endblock %}

@@ -15,6 +15,8 @@ manager.add_command('db', MigrateCommand)
 
 lm = LoginManager()
 lm.init_app(app)
+# lm.unauthorized_handler()
+lm.session_protection = "strong"
 
 from app.models import tables
 from app.controllers import routes
